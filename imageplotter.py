@@ -21,9 +21,10 @@ else:
     print "FAIL!!!!"
     exit(0)
 
-img = cv2.imread(args.image,cv2.IMREAD_COLOR)
 
-print "Reading location data csv file and drawing on image"
+print "Reading image and data, and Drawing on image"
+
+img = cv2.imread(args.image,cv2.IMREAD_COLOR)
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 f = open(args.data)
@@ -33,9 +34,19 @@ for row in reader:
     cv2.putText(img,row[2],(int(row[0]),int(row[1])), font, 0.5,(255,55,55),2)
 f.close()
 
-
 print "writing output image"
 cv2.imwrite( args.outimage, img);
+
+
+
+
+
+
+
+
+
+
+
 
 #print outfilename + " is being printed"
 #outfilename = os.path.splitext(os.path.basename(args.image))[0]  
