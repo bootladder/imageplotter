@@ -21,7 +21,6 @@ else:
     print "FAIL!!!!"
     exit(0)
 
-
 print "Reading image and data, and Drawing on image"
 
 img = cv2.imread(args.image,cv2.IMREAD_COLOR)
@@ -31,7 +30,7 @@ f = open(args.data)
 reader = csv.reader(f)
 for row in reader:
     print "x: ",int(row[0])," y: ",int(row[1])," data: ",row[2]
-    cv2.putText(img,row[2],(int(row[0]),int(row[1])), font, 0.5,(255,55,55),2)
+    cv2.putText(img,row[2],(int(row[0]),int(row[1])), font, 0.75,(255,55,55),2)
 f.close()
 
 print "writing output image"

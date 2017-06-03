@@ -45,11 +45,11 @@ with open(args.indata, 'rb') as csvfile:
         #check payload
         if len(row) < 4 :
             continue
-        elif "6745" not in row[4]:
+        elif "BEEF" not in row[4]:
             print "FILTERED:  " , row[4]
         else :
             print "ACCEPTED:  " , row[4]
-            locationID = int( row[4][10:12],16) 
+            locationID = int( row[4][32:34],16) 
             print "Location ID: %d" %( locationID )
             print "RSSI: %d" %(int(row[2]))
             print "LQI: %d" %(int(row[3]))
