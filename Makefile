@@ -22,7 +22,11 @@ FLOOR1_DATASETS := $(addsuffix .locationdata.csv , $(FLOOR1_DATASETS) )
 	@echo MAKING PARSED RAW DATA
 	python snifferfilterparser.py --outdata $@ --indata $<
 
-%.locationdata.csv : %.parsedrawdata.csv always 
+%.aggregateddata.csv : %.parsedrawdata.csv always
+	@echo AGGREGATING AND ANALYZING DATA
+	python aggregatoranalyzer.py --outdata $@ --indata $<
+
+%.locationdata.csv : %.aggregateddata.csv always 
 	@echo MAKING LOCATION DATA FILE!!!
 	@echo making target: $@ with prereq: $<
 	python location2plotter.py --outdata $@ --indata $< --map $(dir $<)map.csv
