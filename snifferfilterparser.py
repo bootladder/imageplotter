@@ -53,7 +53,7 @@ with open(args.indata, 'rb') as csvfile:
             print "Location ID: %d" %( locationID )
             print "RSSI: %d" %(int(row[2]))
             print "LQI: %d" %(int(row[3]))
-            rowstring = '%d,"%d,%d"\n' %(locationID   , int(row[2]) , int(row[3]) )
+            rowstring = '%d,%d,%d\n' %(locationID   , int(row[2]) , int(row[3]) )
             print rowstring
             outfile.write(rowstring)
 
